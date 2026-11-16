@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spesial Buat Husnika Ilma Sakina ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Latar Belakang Partikel Melayang -->
+    <div class="bg-shapes">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="card">
+        <!-- Indikator Langkah -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="step-indicator" id="step-indicator">Langkah 1 dari 6</div>
+
+        <!-- STEP 1: AMPLOP KHUSUS HUSNIKA -->
+        <section class="step active" id="step-1">
+            <div class="badge-name">Untuk: Husnika Ilma Sakina</div>
+            <div class="icon-anim">💌</div>
+            <h1>Hai, Husnika! ✨</h1>
+            <p>Ada sebuah pesan kecil yang dibuat khusus buat kamu. Siap buat membukanya?</p>
+            <button class="btn primary" onclick="nextStep(2)">
+                Buka Sekarang <i class="fa-solid fa-sparkles"></i>
+            </button>
+        </section>
+
+        <!-- STEP 2: CEK MOOD HUSNIKA -->
+        <section class="step" id="step-2">
+            <div class="icon-anim">🌤️</div>
+            <h1>Gimana Kabar Husnika Hari Ini?</h1>
+            <p>Pilih yang paling menggambarkan suasana hati kamu sekarang ya:</p>
+            <div class="option-grid">
+                <button class="btn option" onclick="selectMood('happy')">Lagi Happy Banget 😊</button>
+                <button class="btn option" onclick="selectMood('chill')">Santai & Tenang 😌</button>
+                <button class="btn option" onclick="selectMood('tired')">Agak Capek Nih 🥱</button>
+                <button class="btn option" onclick="selectMood('bored')">Lagi Gabut Butuh Cerita ☕</button>
+            </div>
+        </section>
+
+        <!-- STEP 3: MINI-GAME INISIAL NAMA (H - I - S) -->
+        <section class="step" id="step-3">
+            <div class="icon-anim">🔐</div>
+            <h1 id="mood-title">Oke, Siap!</h1>
+            <p id="mood-reply">Untuk membuka gembok pesan selanjutnya, tekan urutan inisial namamu (<strong>H - I - S</strong>) di bawah ini!</p>
+            
+            <div class="key-grid">
+                <button class="key-btn" onclick="checkInitial('I', this)">I</button>
+                <button class="key-btn" onclick="checkInitial('S', this)">S</button>
+                <button class="key-btn" onclick="checkInitial('H', this)">H</button>
+            </div>
+            <div class="key-status" id="key-status">Urutan: _ - _ - _</div>
+        </section>
+
+        <!-- STEP 4: MINI-GAME TANGKAP BINTANG -->
+        <section class="step" id="step-4">
+            <div class="icon-anim">🌟</div>
+            <h1>Satu Tantangan Lagi!</h1>
+            <p>Ketuk bintang di bawah <strong>3 kali</strong> buat ngumpulin energi positif sebelum baca pesan utamanya!</p>
+            
+            <div class="star-box">
+                <button id="star-btn" class="star-btn" onclick="tapStar()">⭐</button>
+                <div class="star-counter" id="star-counter">0 / 3 Energi Terkumpul</div>
+            </div>
+        </section>
+
+        <!-- STEP 5: PESAN UTAMA (EFEK MENGETIK) -->
+        <section class="step" id="step-5">
+            <div class="icon-anim">📝</div>
+            <h1>Buat Husnika Ilma Sakina...</h1>
+            <div class="typing-box">
+                <p id="typing-text"></p>
+            </div>
+            <button class="btn primary hidden" id="btn-to-step6" onclick="nextStep(6)">
+                Lanjut ke Pertanyaan Inti <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <!-- STEP 6: AJAKAN BERTEMAN LEBIH DEKAT & PILIH AKTIVITAS -->
+        <section class="step" id="step-6">
+            <div class="icon-anim" id="final-emoji">🤝✨</div>
+            <h1 id="final-question">Husnika, boleh nggak kita berteman lebih dekat?</h1>
+            <p id="final-subtext">Rasanya bakal seru banget kalau bisa sering ngobrol, tukar cerita, atau saling sharing hal-hal seru bareng kamu.</p>
+            
+            <div class="btn-group" id="decision-btns">
+                <button id="btn-yes" class="btn primary">Boleh Banget! 🙌</button>
+                <button id="btn-no" class="btn secondary">Pikir-Pikir Dulu 🙈</button>
+            </div>
+
+            <!-- Muncul setelah Husnika klik "Boleh Banget!" -->
+            <div class="activity-box hidden" id="activity-box">
+                <p class="activity-title">Yeay! Pilih aktivitas pertama kita yuk:</p>
+                <div class="option-grid">
+                    <button class="btn option" onclick="chooseActivity('Ngobrol & tukar cerita seru 💬')">Ngobrol Seru 💬</button>
+                    <button class="btn option" onclick="chooseActivity('Mabar game bareng 🎮')">Mabar Game 🎮</button>
+                    <button class="btn option" onclick="chooseActivity('Tukar rekomendasi lagu/film 🎧')">Tukar Playlist 🎧</button>
+                    <button class="btn option" onclick="chooseActivity('Jajan atau nongkrong santai 🧋')">Jajan Santai 🧋</button>
+                </div>
+                <div id="result-copy" class="result-copy hidden"></div>
+            </div>
+        </section>
+    </div>
+
+    <canvas id="confetti-canvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

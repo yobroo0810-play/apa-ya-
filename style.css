@@ -1,0 +1,306 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #ec4899 100%);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Partikel Latar Belakang */
+.bg-shapes span {
+    position: absolute;
+    display: block;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    animation: floatUp 16s linear infinite;
+    bottom: -120px;
+}
+
+.bg-shapes span:nth-child(1) { left: 10%; width: 55px; height: 55px; animation-duration: 13s; }
+.bg-shapes span:nth-child(2) { left: 28%; width: 25px; height: 25px; animation-duration: 18s; animation-delay: 2s; }
+.bg-shapes span:nth-child(3) { left: 52%; width: 75px; height: 75px; animation-duration: 21s; }
+.bg-shapes span:nth-child(4) { left: 74%; width: 35px; height: 35px; animation-duration: 14s; animation-delay: 3s; }
+.bg-shapes span:nth-child(5) { left: 88%; width: 48px; height: 48px; animation-duration: 17s; animation-delay: 1s; }
+.bg-shapes span:nth-child(6) { left: 42%; width: 30px; height: 30px; animation-duration: 15s; animation-delay: 5s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+}
+
+/* Kartu Utama */
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    padding: 34px 26px;
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 16.6%;
+    background: linear-gradient(90deg, #4f46e5, #ec4899);
+    transition: width 0.4s ease;
+}
+
+.step-indicator {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.badge-name {
+    display: inline-block;
+    background: #eef2ff;
+    color: #4f46e5;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+    border: 1px solid #c7d2fe;
+}
+
+/* Pengaturan Step */
+.step {
+    display: none;
+    animation: fadeSlide 0.45s ease forwards;
+}
+
+.step.active {
+    display: block;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.icon-anim {
+    font-size: 3.8rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+h1 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+    line-height: 1.35;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* Tombol-tombol */
+.btn {
+    padding: 12px 24px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn.primary {
+    background: linear-gradient(45deg, #4f46e5, #9333ea);
+    color: white;
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+.btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.45);
+}
+
+.btn.secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.btn.option {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    color: #334155;
+    border-radius: 14px;
+    padding: 12px 10px;
+    font-size: 0.84rem;
+}
+
+.btn.option:hover {
+    border-color: #6366f1;
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+/* Mini Game Inisial H-I-S */
+.key-grid {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 15px 0;
+}
+
+.key-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    border-radius: 16px;
+    border: 2px solid #cbd5e1;
+    background: #f8fafc;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.key-btn:hover {
+    border-color: #6366f1;
+    transform: translateY(-3px);
+}
+
+.key-btn.correct {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+}
+
+.key-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4f46e5;
+    margin-top: 8px;
+}
+
+/* Mini Game Bintang */
+.star-box {
+    margin: 10px 0;
+}
+
+.star-btn {
+    font-size: 3.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.star-counter {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #9333ea;
+    margin-top: 8px;
+}
+
+/* Kotak Efek Mengetik */
+.typing-box {
+    background: #f8fafc;
+    border-left: 4px solid #6366f1;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: left;
+    min-height: 125px;
+    margin-bottom: 20px;
+}
+
+.typing-box p {
+    margin-bottom: 0;
+    color: #334155;
+    font-size: 0.88rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Kotak Pilihan Aktivitas Akhir */
+.activity-box {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #cbd5e1;
+    animation: fadeSlide 0.4s ease;
+}
+
+.activity-title {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+}
+
+.result-copy {
+    margin-top: 14px;
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.83rem;
+    line-height: 1.5;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
